@@ -50,6 +50,10 @@ module AthenaHealth
       end
 
       if response.response_code != 200
+        p '---------ATHENA RESPONSE START--------------'
+        p response.inspect
+        p '---------RESPONSE END--------------'
+
         AthenaHealth::Error.new(code: response.response_code).render
       end
 
