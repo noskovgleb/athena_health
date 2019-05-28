@@ -391,6 +391,14 @@ module AthenaHealth
         )
       end
 
+      def delete_patient_subscription(practice_id:, params: {})
+        @api.call(
+            endpoint: "#{practice_id}/patients/changed/subscription",
+            method: :delete,
+            params: params
+        )
+      end
+
       def changed_patients(practice_id:, department_id:, params: {})
         response = @api.call(
             endpoint: "#{practice_id}/patients/changed",
