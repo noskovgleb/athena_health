@@ -64,6 +64,15 @@ module AthenaHealth
 
         response.map {|location| AthenaHealth::Location.new(location) }
       end
+
+      def patient_statuses(practice_id:)
+        response = @api.call(
+            endpoint: "#{practice_id}/chart/configuration/patientstatuses",
+            method: :get
+        )
+
+        AthenaHealth::PatientStatusCollection.new(response)
+      end
     end
   end
 end
