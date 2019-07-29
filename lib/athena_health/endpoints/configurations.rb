@@ -54,6 +54,16 @@ module AthenaHealth
 
         response.map { |ordertype| AthenaHealth::OrderType.new(ordertype) }
       end
+
+      def patient_locations(practice_id:, department_id:)
+        response = @api.call(
+            endpoint: "#{practice_id}/chart/configuration/patientlocations",
+            method: :get,
+            params: { departmentid: department_id }
+        )
+
+        response.map {|location| AthenaHealth::Location.new(location) }
+      end
     end
   end
 end
