@@ -26,6 +26,10 @@ module AthenaHealth
     attribute :templateappointmentid,       Integer
     attribute :urgent,                      Boolean
     attribute :encounterid,                 Integer
+    attribute :checkindatetime,             String
+    attribute :checkoutdatetime,            String
+    attribute :stopintakedatetime,          String
+    attribute :startcheckin,                String
 
     def appointment_status
         {
