@@ -244,6 +244,18 @@ module AthenaHealth
           body: params
         )
       end
+
+      def enhancedopen_appointment_slots(practice_id:, department_id:, params: {})
+        response = @api.call(
+            endpoint: "#{practice_id}/appointments/enhancedopen",
+            method: :get,
+            params: params.merge(
+                departmentid: department_id
+            )
+        )
+
+        AppointmentCollection.new(response)
+      end
     end
   end
 end
