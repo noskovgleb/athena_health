@@ -77,6 +77,7 @@ module AthenaHealth
     attribute :state,                                String
     attribute :patientid,                            Integer
     attribute :referralsourceid,                     Integer
+    attribute :referralsourceother,                  String
     attribute :dob,                                  String
     attribute :guarantorrelationshiptopatient,       Integer
     attribute :address1,                             String
