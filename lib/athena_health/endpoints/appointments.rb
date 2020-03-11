@@ -112,11 +112,14 @@ module AthenaHealth
         NoteCollection.new(response)
       end
 
-      def create_appointment_note(practice_id:, appointment_id:, note_text:)
+      def create_appointment_note(practice_id:, appointment_id:, note_text:, displayonschedule: false)
         @api.call(
           endpoint: "#{practice_id}/appointments/#{appointment_id}/notes",
           method: :post,
-          body: { notetext: note_text }
+          body: {
+            notetext: note_text,
+            displayonschedule: displayonschedule
+          }
         )
       end
 
