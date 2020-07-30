@@ -1,14 +1,13 @@
 module AthenaHealth
   module Endpoints
     module States
-      def all_states(practice_id:, params: {})
+      def all_states(practice_id:)
         response = @api.call(
             endpoint: "#{practice_id}/states",
-            method: :get,
-            params: params
+            method: :get
         )
 
-        StateCollection.new(response)
+        response.map {|state| AthenaHealth::State.new(state) }
       end
     end
   end
